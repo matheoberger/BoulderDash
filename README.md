@@ -1,3 +1,3 @@
 # BoulderDash
 
-It's the game of the year !!
+Project realized by Xavier Labarbe, Mathéo Berger, Elouan Jeannot and Axel Brosset.
