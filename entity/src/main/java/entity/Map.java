@@ -6,7 +6,6 @@ public class Map {
     private String label;
     private int width;
     private int height;
-    public ElementType elementType;
 
     Map() {
 

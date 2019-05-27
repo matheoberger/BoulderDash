@@ -5,7 +5,6 @@ public class ElementType {
     private int id;
     private char label;
     private char elementChar;
-    public Map map;
 
     public char getElementChar() {
         return this.elementChar;
