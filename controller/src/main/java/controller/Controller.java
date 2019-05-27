@@ -10,11 +10,11 @@ import contract.IView;
  */
 public final class Controller implements IController {
 
-	/** The view. */
-	private IView		view;
-
 	/** The model. */
 	private IModel	model;
+
+	/** The view. */
+	private IView		view;
 
 	/**
 	 * Instantiates a new controller.
@@ -25,30 +25,50 @@ public final class Controller implements IController {
 	 *          the model
 	 */
 	public Controller(final IView view, final IModel model) {
-		this.setView(view);
-		this.setModel(model);
+		setView(view);
+		setModel(model);
 	}
 
 	/**
-     * Control.
-     */
+	 * Control.
+	 */
 	/*
 	 * (non-Javadoc)
 	 *
 	 * @see contract.IController#control()
 	 */
+	@Override
 	public void control() {
-		this.view.printMessage("Appuyer sur les touches 'E', 'F', 'D' ou 'I', pour afficher Hello world dans la langue d votre choix.");
+		view.printMessage("Appuyer sur les touches '↑', '↓', '←' ou '→', pour vous déplacer. Ramassez le nombre de diamant attendu pour atteindre la sortie. ATTENTION AU CAILLOUX !");
 	}
 
 	/**
-     * Sets the view.
-     *
-     * @param pview
-     *            the new view
-     */
-	private void setView(final IView pview) {
-		this.view = pview;
+	 * Order perform.
+	 *
+	 * @param controllerOrder
+	 *            the controller order
+	 */
+	/*
+	 * (non-Javadoc)
+	 *
+	 * @see contract.IController#orderPerform(contract.ControllerOrder)
+	 */
+	@Override
+	public void orderPerform(final ControllerOrder controllerOrder) {
+		switch (controllerOrder) {
+		case UP:
+			return;
+		case DOWN:
+			return;
+		case RIGHT:
+			return;
+		case LEFT:
+			return;
+		case NOTHING:
+			return;
+		default:
+			break;
+		}
 	}
 
 	/**
@@ -57,38 +77,20 @@ public final class Controller implements IController {
 	 * @param model
 	 *          the new model
 	 */
+
 	private void setModel(final IModel model) {
 		this.model = model;
 	}
 
 	/**
-     * Order perform.
-     *
-     * @param controllerOrder
-     *            the controller order
-     */
-	/*
-	 * (non-Javadoc)
+	 * Sets the view.
 	 *
-	 * @see contract.IController#orderPerform(contract.ControllerOrder)
+	 * @param pview
+	 *            the new view
 	 */
-	public void orderPerform(final ControllerOrder controllerOrder) {
-		switch (controllerOrder) {
-			case English:
-				this.model.loadHelloWorld("GB");
-				break;
-			case Francais:
-				this.model.loadHelloWorld("FR");
-				break;
-			case Deutsch:
-				this.model.loadHelloWorld("DE");
-				break;
-			case Indonesia:
-				this.model.loadHelloWorld("ID");
-				break;
-			default:
-				break;
-		}
+
+	private void setView(final IView pview) {
+		view = pview;
 	}
 
 }

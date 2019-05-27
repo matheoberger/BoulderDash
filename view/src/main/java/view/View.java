@@ -1,6 +1,7 @@
 package view;
 
 import java.awt.event.KeyEvent;
+import java.util.Map;
 
 import javax.swing.SwingUtilities;
 
@@ -16,6 +17,28 @@ import contract.IView;
  */
 public final class View implements IView, Runnable {
 
+	/**
+	 * Key code to controller order.
+	 *
+	 * @param keyCode
+	 *          the key code
+	 * @return the controller order
+	 */
+	protected static ControllerOrder keyCodeToControllerOrder(final int keyCode) {
+		switch (keyCode) {
+		case KeyEvent.VK_UP:
+			return ControllerOrder.UP;
+		case KeyEvent.VK_DOWN:
+			return ControllerOrder.DOWN;
+		case KeyEvent.VK_LEFT:
+			return ControllerOrder.LEFT;
+		case KeyEvent.VK_RIGHT:
+			return ControllerOrder.RIGHT;
+		default:
+			return ControllerOrder.NOTHING;
+		}
+	}
+
 	/** The frame. */
 	private final ViewFrame viewFrame;
 
@@ -26,30 +49,12 @@ public final class View implements IView, Runnable {
 	 *          the model
 	 */
 	public View(final IModel model) {
-		this.viewFrame = new ViewFrame(model);
+		viewFrame = new ViewFrame(model);
 		SwingUtilities.invokeLater(this);
 	}
 
-	/**
-	 * Key code to controller order.
-	 *
-	 * @param keyCode
-	 *          the key code
-	 * @return the controller order
-	 */
-	protected static ControllerOrder keyCodeToControllerOrder(final int keyCode) {
-		switch (keyCode) {
-			case KeyEvent.VK_G:
-				return ControllerOrder.English;
-			case KeyEvent.VK_F:
-				return ControllerOrder.Francais;
-			case KeyEvent.VK_D:
-				return ControllerOrder.Deutsch;
-			case KeyEvent.VK_I:
-				return ControllerOrder.Indonesia;
-			default:
-				return ControllerOrder.English;
-		}
+	public void display(Map map){
+
 	}
 
 	/*
@@ -57,8 +62,9 @@ public final class View implements IView, Runnable {
 	 *
 	 * @see contract.IView#printMessage(java.lang.String)
 	 */
+	@Override
 	public void printMessage(final String message) {
-		this.viewFrame.printMessage(message);
+		viewFrame.printMessage(message);
 	}
 
 	/*
@@ -66,8 +72,9 @@ public final class View implements IView, Runnable {
 	 *
 	 * @see java.lang.Runnable#run()
 	 */
+	@Override
 	public void run() {
-		this.viewFrame.setVisible(true);
+		viewFrame.setVisible(true);
 	}
 
 	/**
@@ -77,6 +84,6 @@ public final class View implements IView, Runnable {
 	 *          the new controller
 	 */
 	public void setController(final IController controller) {
-		this.viewFrame.setController(controller);
+		viewFrame.setController(controller);
 	}
 }
