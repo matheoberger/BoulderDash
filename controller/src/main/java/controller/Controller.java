@@ -39,7 +39,7 @@ public final class Controller implements IController {
 	 */
 	@Override
 	public void control() {
-		view.printMessage("Appuyer sur les touches '↑', '↓', '←' ou '→', pour vous déplacer. Ramassez le nombre de diamant attendu pour atteindre la sortie. ATTENTION AU CAILLOUX !");
+		view.printMessage("Appuyer sur les touches '↑', '↓', '←' ou '→', pour vous déplacer. Ramassez le nombre de diamant attendu pour atteindre la sortie. ATTENTION AUX CAILLOUX !");
 	}
 
 	/**
