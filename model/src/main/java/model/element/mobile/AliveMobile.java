@@ -1,13 +1,12 @@
 package model.element.mobile;
 
-public abstract class AliveMobile implements iLife {
-    private Boolean alive;
+public abstract class AliveMobile extends Mobile implements iLife {
+    protected Boolean alive;
 
     public Boolean getAlive() {
         return this.alive;
     }
 
-    public void setAlive(final Boolean alive) {
-        this.alive = alive;
-    }
+    @Override
+    public abstract void setAlive(final Boolean alive);
 }

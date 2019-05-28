@@ -1,5 +1,7 @@
 package model.element.mobile;
 
 public interface iLife {
-    Boolean setAlive();
+
+    void setAlive(final Boolean alive);
+
 }

@@ -22,6 +22,7 @@ public class Sprite implements iSprite {
     private boolean imageLoaded;
 
     public Sprite(final char character, final String imageName) {
+        this.setImageLoaded(false);
         this.setConsoleImage(character);
         this.setImageName(imageName);
     }
@@ -48,7 +49,10 @@ public class Sprite implements iSprite {
 
     @Override
     public final void loadImage() throws IOException {
+
         this.setImage(ImageIO.read(new File("images/" + this.getImageName())));
+        this.setImageLoaded(true);
+
     }
 
     private void setConsoleImage(final char consoleImage) {
