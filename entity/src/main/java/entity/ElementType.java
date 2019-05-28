@@ -3,10 +3,10 @@ package entity;
 public class ElementType {
 
     private final int id;
-    private final char label;
+    private final String label;
     private final char elementChar;
 
-    public ElementType(final int id, final char label, final char elementChar) {
+    public ElementType(final int id, final String label, final char elementChar) {
         this.id = id;
         this.label = label;
         this.elementChar = elementChar;
@@ -21,7 +21,7 @@ public class ElementType {
         return this.id;
     }
 
-    public char getLabel() {
+    public String getLabel() {
         return this.label;
     }
 
