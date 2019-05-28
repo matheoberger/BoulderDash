@@ -2,9 +2,16 @@ package entity;
 
 public class ElementType {
 
-    private int id;
-    private char label;
-    private char elementChar;
+    private final int id;
+    private final char label;
+    private final char elementChar;
+
+    public ElementType(final int id, final char label, final char elementChar) {
+        this.id = id;
+        this.label = label;
+        this.elementChar = elementChar;
+
+    }
 
     public char getElementChar() {
         return this.elementChar;
@@ -16,14 +23,6 @@ public class ElementType {
 
     public char getLabel() {
         return this.label;
-    }
-
-    public void setElementChar(final char elementChar) {
-        this.elementChar = elementChar;
-    }
-
-    public void setLabel(final char label) {
-        this.label = label;
     }
 
 }

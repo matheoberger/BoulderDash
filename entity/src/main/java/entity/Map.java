@@ -1,14 +1,24 @@
 package entity;
 
-public class Map {
+import java.util.ArrayList;
 
-    private int id;
-    private String label;
-    private int width;
-    private int height;
+public class Map extends Entity {
 
-    Map() {
+    private final int id;
+    private final String label;
+    private final int width;
+    private final int height;
+    private ArrayList<FillingMap> fillingMaps;
 
+    Map(final int id, final String label, final int width, final int height) {
+        this.id = id;
+        this.label = label;
+        this.width = width;
+        this.height = height;
+    }
+
+    public ArrayList<FillingMap> getFillingMaps() {
+        return this.fillingMaps;
     }
 
     public int getHeight() {
@@ -27,16 +37,8 @@ public class Map {
         return this.width;
     }
 
-    public void setHeight(final int height) {
-        this.height = height;
-    }
-
-    public void setLabel(final String label) {
-        this.label = label;
-    }
-
-    public void setWidth(final int width) {
-        this.width = width;
+    public void setFillingMaps(final ArrayList<FillingMap> fillingMaps) {
+        this.fillingMaps = fillingMaps;
     }
 
 }
